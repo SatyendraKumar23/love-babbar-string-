@@ -1,0 +1,32 @@
+// Java program to check if two given strings are rotations
+// of each other
+
+class StringRotation {
+	/* Function checks if passed strings (str1 and str2)
+	are rotations of each other */
+	static boolean areRotations(String str1, String str2)
+	{
+		// There lengths must be same and str2 must be
+		// a substring of str1 concatenated with str1.
+		return (str1.length() == str2.length())
+			&& ((str1 + str1).indexOf(str2) != -1);  //The indexOf() method returns the position of the first occurrence of specified character(s) in a string.
+
+//Tip: Use the lastIndexOf method to return the position of the last occurrence of specified character(s) in a string.
+	}
+
+	// Driver code
+	public static void main(String[] args)
+	{
+		String str1 = "AACD";
+		String str2 = "ACDA";
+
+		// Fuinction call
+		if (areRotations(str1, str2))
+			System.out.println(
+				"Strings are rotations of each other");
+		else
+			System.out.printf(
+				"Strings are not rotations of each other");
+	}
+}
+// This code is contributed by munjal
