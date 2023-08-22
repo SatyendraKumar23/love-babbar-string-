@@ -1,0 +1,51 @@
+class Solution {
+    public String countAndSay(int n) {
+        if(n==1)
+        {
+            return "1";
+        }
+
+        if(n==2)
+        {
+            return "11";
+        }
+        String s="11";
+
+        for(int i=3;i<=n;i++)
+        {
+            String nextstring=convert(s);
+            s=nextstring;
+
+        }
+        return s;
+    }
+
+    public static String convert(String s)
+    {
+        char prevch=s.charAt(0);
+        int count=1;
+
+        StringBuilder sb=new StringBuilder();
+
+        for(int i=1;i<s.length();i++)
+        {
+            char currchr=s.charAt(i);
+
+            if(currchr!=prevch)
+            {
+                sb.append(Integer.toString(count));
+                sb.append(prevch);
+                count=1;
+                prevch=currchr;
+            }
+            else{
+                count++;
+            }
+        }
+       sb.append(Integer.toString(count));
+    sb.append(prevch);
+
+    return sb.toString();
+
+    }
+}
